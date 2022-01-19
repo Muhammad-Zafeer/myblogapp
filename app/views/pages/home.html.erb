@@ -1,0 +1,50 @@
+<%= render  "header" %>
+<div class="container mt-1">
+  <form class="d-flex" method="GET" action="/search" >
+        <input class="form-control me-2" name="query"  type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </div>
+<h1 class="container ">Home</h1>
+
+
+<form method="POST" action="/add">
+
+<%= token_tag %>
+<div class="container">
+<div class="mb-3">
+  <label for="tid" class="form-label">Blog name</label>
+  <input name ="title" type="text" class="form-control" id="tid" placeholder="text">
+</div>
+<div class="mb-3">
+  <label for="desid" class="form-label">blog content</label>
+  <textarea  name ="description"class="form-control" id="desid" rows="3"></textarea>
+  <div class="mb-3 mt-2" >
+  <input type="submit" class="btn btn-primary">
+  </div>
+</div>
+</div>
+</form>
+<hr>
+<% @post.each do |post| %>
+<div class="container">
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h3 class="card-title"><%= post.title%></h3>
+    <p class="card-text"><%= post.description %></p>
+    <a href="/edit/<%= post.id %>"  class="btn btn-warning">Edit</a>  <a href="/delete/<%= post.id %>" class="btn btn-danger" data-method="delete">Delete</a>
+  </div>
+</div>
+</div>
+<hr>
+<% end %>
+
+
+
+
+
+
+
+
+<%= render  "footer" %>

@@ -1,0 +1,25 @@
+
+
+<%= render  "header" %>
+
+<h1 class="container ">Edit</h1>
+
+
+<form method="POST" action="/editform">
+<input type="hidden" value="<%= @id %>" name="id">
+
+<%= token_tag %>
+<div class="container">
+<div class="mb-3">
+  <label for="tid" class="form-label">Blog name</label>
+  <input name ="title" type="text" class="form-control" id="tid"  value="<%= @title%>">
+</div>
+<div class="mb-3">
+  <label for="desid" class="form-label">blog content</label>
+  <textarea  name ="description"class="form-control" id="desid" rows="3"><%= @description %></textarea>
+  <div class="mb-3 mt-2" >
+  <input type="submit" class="btn btn-warning" value="Edit">
+  </div>
+</div>
+</div>
+</form>
